@@ -1,4 +1,4 @@
-CHAOSSSCIIILLLLAAAATOR.
+CHAOSSSCIIILLLLAAAATOR
 
 Little crossfadey frequency filter hack using web audio api
 
@@ -15,3 +15,4 @@ https://www.musicradar.com/news/tech/sampleradar-328-free-drum-n-bass-samples-22
 
 https://www.html5rocks.com/en/tutorials/webaudio/intro/
 
+PS, Title inaccurate as it doesn't actually have an oscillator, yet
