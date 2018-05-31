@@ -292,7 +292,7 @@ drums1.changeFrequency = function(offsets) {
 drums1.changeQuality = function(offsets) {
   var windowHeight = document.documentElement.clientHeight;
   val = offsets.offsetY / (windowHeight / 2);
-  this.filter.Q.value = val * this.QUAL_MUL;
+  this.filter.Q.value = -val * this.QUAL_MUL;
 };
 
 
@@ -360,5 +360,5 @@ drums2.changeFrequency = function(offsets) {
 drums2.changeQuality = function(offsets) {
   var windowHeight = document.documentElement.clientHeight;
   val = offsets.offsetY / (windowHeight / 2);
-  this.filter.Q.value = val * this.QUAL_MUL;
+  this.filter.Q.value = -val * this.QUAL_MUL;
 };
