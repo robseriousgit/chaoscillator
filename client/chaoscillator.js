@@ -37,11 +37,13 @@ function initAll() {
 
 
 function handleMouseClick(e) {
-  console.log('play/pause')
+  
   if (playing) {
+    console.log('pause')
     stopAll()
     playing = false;
   } else {
+    console.log('play')
     startAll();
     initAll();
     playing = true;
@@ -67,11 +69,15 @@ function handleMouseMove(e) {
   drums1.changeGain(offsets);
   drums2.changeGain(offsets);
  
-
   bass1.changeFrequency(offsets);
   bass2.changeFrequency(offsets);
   drums1.changeFrequency(offsets);
   drums2.changeFrequency(offsets);
+
+  bass1.changeQuality(offsets);
+  bass2.changeQuality(offsets);
+  drums1.changeQuality(offsets);
+  drums2.changeQuality(offsets);
 
 }
 
@@ -151,8 +157,10 @@ bass1.changeFrequency = function(offsets) {
   this.filter.frequency.value = maxValue * multiplier;
 };
 
-bass1.changeQuality = function(element) {
-  this.filter.Q.value = element.value * this.QUAL_MUL;
+bass1.changeQuality = function(offsets) {
+  var windowHeight = document.documentElement.clientHeight;
+  val = offsets.offsetY / (windowHeight / 2);
+  this.filter.Q.value = val * this.QUAL_MUL;
 };
 
 /* Sampley bits Bass 2  */
@@ -205,8 +213,6 @@ bass2.changeFrequency = function(offsets) {
   var windowWidth = document.documentElement.clientWidth;
   // Clamp the frequency between the minimum value (40 Hz) and half of the
   // sampling rate.
-  console.log((offsets.offsetX / (windowWidth / 2)))
-
   var minValue = 40;
   var maxValue = context.sampleRate / 2;
   // Logarithm (base 2) to compute how many octaves fall in the range.
@@ -217,10 +223,11 @@ bass2.changeFrequency = function(offsets) {
   this.filter.frequency.value = maxValue * multiplier;
 };
 
-bass2.changeQuality = function(element) {
-  this.filter.Q.value = element.value * this.QUAL_MUL;
+bass2.changeQuality = function(offsets) {
+  var windowHeight = document.documentElement.clientHeight;
+  val = offsets.offsetY / (windowHeight / 2);
+  this.filter.Q.value = val * this.QUAL_MUL;
 };
-
 
 /* Sampley bits Drums 1  */
 
@@ -282,8 +289,10 @@ drums1.changeFrequency = function(offsets) {
   this.filter.frequency.value = maxValue * multiplier;
 };
 
-drums1.changeQuality = function(element) {
-  this.filter.Q.value = element.value * this.QUAL_MUL;
+drums1.changeQuality = function(offsets) {
+  var windowHeight = document.documentElement.clientHeight;
+  val = offsets.offsetY / (windowHeight / 2);
+  this.filter.Q.value = val * this.QUAL_MUL;
 };
 
 
@@ -338,8 +347,6 @@ drums2.changeFrequency = function(offsets) {
   var windowWidth = document.documentElement.clientWidth;
   // Clamp the frequency between the minimum value (40 Hz) and half of the
   // sampling rate.
-  console.log((offsets.offsetX / (windowWidth / 2)))
-
   var minValue = 40;
   var maxValue = context.sampleRate / 2;
   // Logarithm (base 2) to compute how many octaves fall in the range.
@@ -350,7 +357,8 @@ drums2.changeFrequency = function(offsets) {
   this.filter.frequency.value = maxValue * multiplier;
 };
 
-
-drums2.changeQuality = function(element) {
-  this.filter.Q.value = element.value * this.QUAL_MUL;
+drums2.changeQuality = function(offsets) {
+  var windowHeight = document.documentElement.clientHeight;
+  val = offsets.offsetY / (windowHeight / 2);
+  this.filter.Q.value = val * this.QUAL_MUL;
 };
