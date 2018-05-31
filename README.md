@@ -1,4 +1,4 @@
-CHAOSSSIIILLLLAAAATOR.
+CHAOSSSCIIILLLLAAAATOR.
 
 Little crossfadey frequency filter hack using web audio api
 
